@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4A6E5A2F-2A07-43C9-8E65-F445CCD17BE6}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>TrelloToExcel</RootNamespace>
+    <AssemblyName>TrelloToExcel</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="DocumentFormat.OpenXml">
+      <HintPath>..\packages\SpreadsheetHelper.1.0.1\lib\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp">
+      <HintPath>..\packages\RestSharp.104.4.0\lib\net4\RestSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetHelper">
+      <HintPath>..\packages\SpreadsheetHelper.1.0.1\lib\SpreadsheetHelper.dll</HintPath>
+    </Reference>
+    <Reference Include="SpreadsheetLight">
+      <HintPath>..\packages\SpreadsheetLight.3.4.4\lib\SpreadsheetLight.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Client\Expiration.cs" />
+    <Compile Include="Client\ExpirationExtentions.cs" />
+    <Compile Include="Client\MemberTokenAuthenticator.cs" />
+    <Compile Include="Client\Scope.cs" />
+    <Compile Include="Client\ScopeExtensions.cs" />
+    <Compile Include="Client\TrelloDeserializer.cs" />
+    <Compile Include="Client\TrelloRestClient.cs" />
+    <Compile Include="BoardExporter.cs" />
+    <Compile Include="Trello\Action.cs" />
+    <Compile Include="Trello\Attachment.cs" />
+    <Compile Include="Trello\Badges.cs" />
+    <Compile Include="Trello\BioData.cs" />
+    <Compile Include="Trello\Board.cs" />
+    <Compile Include="Trello\Card.cs" />
+    <Compile Include="Trello\Card2.cs" />
+    <Compile Include="Trello\CardSource.cs" />
+    <Compile Include="Trello\CheckItem.cs" />
+    <Compile Include="Trello\Checklist.cs" />
+    <Compile Include="Trello\Checklist2.cs" />
+    <Compile Include="Trello\Data.cs" />
+    <Compile Include="Trello\DescData.cs" />
+    <Compile Include="Trello\Emoji.cs" />
+    <Compile Include="Trello\Emoji2.cs" />
+    <Compile Include="Trello\Emoji3.cs" />
+    <Compile Include="Trello\LabelNames.cs" />
+    <Compile Include="Trello\List.cs" />
+    <Compile Include="Trello\List2.cs" />
+    <Compile Include="Trello\ListAfter.cs" />
+    <Compile Include="Trello\ListBefore.cs" />
+    <Compile Include="Trello\Member.cs" />
+    <Compile Include="Trello\Member2.cs" />
+    <Compile Include="Trello\MemberCreator.cs" />
+    <Compile Include="Trello\Membership.cs" />
+    <Compile Include="Trello\Old.cs" />
+    <Compile Include="Trello\Prefs.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Trello\TrelloBoard.cs" />
+    <Compile Include="Trello\TextData.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
